@@ -1,0 +1,40 @@
+server:
+  port: 8080
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, prometheus
+
+
+infinispan:
+  embedded:
+    enabled: true
+    cluster-name: local
+    config-xml: local-cache.xml
+
+---
+spring.config.activate.on-profile: p1
+
+server.port: 8081
+
+---
+spring.config.activate.on-profile: p2
+
+server.port: 8082
+
+---
+spring.config.activate.on-profile: p3
+
+server.port: 8083
+
+---
+spring.config.activate.on-profile: replicated-cache
+
+infinispan:
+  embedded:
+    enabled: true
+    cluster-name: cluster1
+    config-xml: replicated-cache.xml
+

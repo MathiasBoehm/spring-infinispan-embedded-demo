@@ -1,0 +1,16 @@
+<infinispan>
+    <cache-container statistics="true">
+      <transport stack="udp" />
+        
+      <serialization marshaller="org.infinispan.commons.marshall.JavaSerializationMarshaller">
+        <allow-list>
+          <regex>.*</regex>
+        </allow-list>
+      </serialization>
+
+      <replicated-cache name="customers" statistics="true">
+        <expiration lifespan="60000"/>
+      </replicated-cache>
+      
+    </cache-container>
+  </infinispan>

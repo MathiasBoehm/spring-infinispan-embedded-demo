@@ -1,0 +1,8 @@
+<infinispan>
+    <cache-container statistics="true">
+        <local-cache name="customers" statistics="true">
+            <memory max-count="500"/>
+            <expiration lifespan="30000"/>
+        </local-cache>
+    </cache-container>
+</infinispan>
